@@ -73,6 +73,8 @@ int main(int argc, char* argv[])
     
     /////////////////////////////////////////////////
     // Part one - generate keys
+    // ECP: Elliptic Curve Prime Field
+    // EC2N: Elliptic Curve Binary Field
     
     ECIES<ECP>::Decryptor d0(prng, ASN1::secp256r1());
     PrintPrivateKey(d0.GetKey());
@@ -113,40 +115,42 @@ int main(int argc, char* argv[])
     LoadPrivateKey(d1.AccessPrivateKey());
     d1.GetPrivateKey().ThrowIfInvalid(prng, 3);
     
-    // ECIES<ECP>::Encryptor e1;
-    // LoadPublicKey(e1.AccessPublicKey());
-    // e1.GetPublicKey(). ThrowIfInvalid(prng, 3);
+    ECIES<ECP>::Encryptor e1;
+    LoadPublicKey(e1.AccessPublicKey());
+    e1.GetPublicKey(). ThrowIfInvalid(prng, 3);
     
     /////////////////////////////////////////////////
     // Part four - encrypt/decrypt with e0/d1
     
-    string em0; // encrypted message
-    StringSource ss1 (message, true, new PK_EncryptorFilter(prng, e0, new StringSink(em0) ) );
-    string dm0; // decrypted message
-    StringSource ss2 (em0, true, new PK_DecryptorFilter(prng, d1, new StringSink(dm0) ) );
-    string encoded; // encoded (pretty print)
-    StringSource ss3(em0, true, new HexEncoder(new StringSink(encoded)));
+    // string em0; // encrypted message
+    // StringSource ss1 (message, true, new PK_EncryptorFilter(prng, e0, new StringSink(em0) ) );
+    // string dm0; // decrypted message
+    // StringSource ss2 (em0, true, new PK_DecryptorFilter(prng, d1, new StringSink(dm0) ) );
+    // string encoded; // encoded (pretty print)
+    // StringSource ss3(em0, true, new HexEncoder(new StringSink(encoded)));
 
-    cout << "Original message:" << endl << "  ";
-    cout << message << endl;
-    cout << "Ciphertext (" << encoded.size()/2 << "):" << endl << "  ";
-    cout << encoded << endl;
-    cout << "Recovered:" << endl << "  ";
-    cout << dm0 << endl;
+    // cout << "Original message (" << message.size() << "):" << endl << "  ";
+    // cout << message << endl;
+    // cout << "Ciphertext (" << em0.size() << "):" << endl << "  ";
+    // cout << em0 << endl;
+    // cout << "Recovered (" << dm0.size() << "):" << endl << "  ";
+    // cout << dm0 << endl;
     
     /////////////////////////////////////////////////
     // Part five - encrypt/decrypt with e1/d0
     
-    // string em1; // encrypted message
-    // StringSource ss4 (message, true, new PK_EncryptorFilter(prng, e1, new StringSink(em1) ) );
-    // string dm1; // decrypted message
-    // StringSource ss5 (em1, true, new PK_DecryptorFilter(prng, d0, new StringSink(dm1) ) );
+    string em1; // encrypted message
+    StringSource ss4 (message, true, new PK_EncryptorFilter(prng, e1, new StringSink(em1) ) );
+    string dm1; // decrypted message
+    StringSource ss5 (em1, true, new PK_DecryptorFilter(prng, d0, new StringSink(dm1) ) );
     // StringSource ss6(em1, true, new HexEncoder(new StringSink(encoded)));
 
-    // cout << "Ciphertext (" << encoded.size()/2 << "):" << endl << "  ";
-    // cout << encoded << endl;
-    // cout << "Recovered:" << endl << "  ";
-    // cout << dm1 << endl;
+    cout << "Original message (" << message.size() << "):" << endl << "  ";
+    cout << message << endl;
+    cout << "Ciphertext (" << em1.size() << "):" << endl << "  ";
+    cout << em1 << endl;
+    cout << "Recovered (" << dm1.size() << "):" << endl << "  ";
+    cout << dm1 << endl;
     
     return 0;
 }
