@@ -1,0 +1,30 @@
+------------ X ------------ X ------------ X ------------
+Chave Privada:
+Módulo (p): ffffffff00000001000000000000000000000000ffffffffffffffffffffffffh
+Cofator (h = |E(Fp)|/n): 1h
+Coeficientes da curva:
+  -> a: ffffffff00000001000000000000000000000000fffffffffffffffffffffffch
+  -> b: 5ac635d8aa3a93e7b3ebbd55769886bc651d06b0cc53b0f63bce3c3e27d2604bh
+Ponto base/gerador (G)
+  -> x: 6b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296h
+  -> y: 4fe342e2fe1a7f9b8ee7eb4a7c0f9e162bce33576b315ececbb6406837bf51f5h
+Ponto - Chave pública (Q)
+  -> x: 2041d0de39eb194ca7f4a08db2ecd41436456b2ba1be5958f7395f815d61d7fdh
+  -> y: 4e36c8474ddbfeb10ec0a182abd591b814f7328949a8bc2b13b7085b1c668aebh
+Multiplicando/Expoente - Chave privada (d): 
+  -> d: ba46bd8c7c3231f5c5d9788f2ac423288aeedb2b857a905d4e1dec071b329633h
+
+------------ X ------------ X ------------ X ------------
+Chave Pública:
+Módulo (p): ffffffff00000001000000000000000000000000ffffffffffffffffffffffffh
+Cofator (h = |E(Fp)|/n): 1h
+Coeficientes da curva:
+  a: ffffffff00000001000000000000000000000000fffffffffffffffffffffffch
+  b: 5ac635d8aa3a93e7b3ebbd55769886bc651d06b0cc53b0f63bce3c3e27d2604bh
+Ponto base/gerador (G)
+  x: 6b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296h
+  y: 4fe342e2fe1a7f9b8ee7eb4a7c0f9e162bce33576b315ececbb6406837bf51f5h
+Ponto - Chave pública (Q)
+  x: 2041d0de39eb194ca7f4a08db2ecd41436456b2ba1be5958f7395f815d61d7fdh
+  y: 4e36c8474ddbfeb10ec0a182abd591b814f7328949a8bc2b13b7085b1c668aebh
+
