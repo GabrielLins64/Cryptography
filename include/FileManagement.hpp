@@ -9,6 +9,7 @@ std::string ReadFromFile(const std::string filePath)
     std::ifstream file(filePath);
     text.assign( (std::istreambuf_iterator<char>(file)),
                  (std::istreambuf_iterator<char>()));
+    file.close();
     return text;
 }
 
@@ -18,4 +19,5 @@ void WriteToFile(const std::string filePath, const std::string text, bool append
     if(append) file.open(filePath, std::ios_base::app);
     else file.open(filePath);
     file << text;
+    file.close();
 }
